@@ -1,0 +1,2 @@
+# Anti-Patching tekniği
+test
