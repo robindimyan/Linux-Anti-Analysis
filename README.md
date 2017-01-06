@@ -4,6 +4,6 @@ Günümüzde zararlı yazılım geliştiricileri yazdıkları zararlı yazılım
 Linux ortamına ait Anti-Analiz tekniklerinden birkaçına ait C ile yazılmış örnek bulabilirsiniz. Burada yer alan teknikler:
 * Anti-ptrace
 * Anti-breakpoint
-* Anti-VM (VirtualPC)
+* Anti-VM (Virtual PC)
 * Anti-Hook
 * Anti-Patching
