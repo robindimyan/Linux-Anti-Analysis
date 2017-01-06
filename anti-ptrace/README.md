@@ -1,0 +1,2 @@
+# Anti-Ptrace tekniği
+test
