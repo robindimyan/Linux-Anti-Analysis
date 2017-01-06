@@ -4,13 +4,13 @@
 #include <stdlib.h>
 #include <signal.h>
 
-void evil_func()
+void evil_func() // Pis işlerimizi yapacağımız fonksiyon..
 {
 	puts("No VirtualPC detected! Starting evil stuff..");
 	exit(0);
 }
 
-void catch_segfault()
+void catch_segfault() // Segmentation-fault sinyali handler'ı, şayet sinyal yakalanırsa VirtualPC yok demek. Yani pis işlerimizi yapabiliriz.
 {
 	evil_func();
 }
@@ -33,8 +33,8 @@ void check_vm()
 
 int main()
 {
-	signal( SIGSEGV, catch_segfault);
-	check_vm();
-	puts("Virtual PC detected..");
-	return 0;
+	signal( SIGSEGV, catch_segfault); // Segmentation fault signali'ni dinlemeye alıyoruz.
+	check_vm(); // Virtual PC içerisindemiyiz bakalım..
+	puts("Virtual PC detected.."); // Şayet Virtual PC'de çalışıyorsak shellcode başarıyla çalışacak dolayısı ile hata üretmeyecek.
+	return 0; // Bu durumda da herhangi bir işlem yapmadan programı kapatalım.
 }
