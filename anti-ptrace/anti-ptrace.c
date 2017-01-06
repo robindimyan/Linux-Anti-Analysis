@@ -5,7 +5,7 @@
 int check_ptrace()
 {
 	if ( ptrace(PTRACE_TRACEME) == -1 ) // Program kendisine "attach" olamadığı takdirde bu debugger kullanıldığına işaret edebilir.
-		exit(0);
+		exit(0); // Bu durumda program kapansın
 }
 
 int main()
