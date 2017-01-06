@@ -1,0 +1,2 @@
+# Anti-Hook tekniği
+test
