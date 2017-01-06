@@ -10,7 +10,7 @@ void evil_func() // Pis işlerimizi yapacağımız fonksiyon..
 	exit(0);
 }
 
-void catch_segfault() // Segmentation-fault sinyali handler'ı, şayet sinyal yakalanırsa VirtualPC yok demek. Yani pis işlerimizi yapabiliriz.
+void catch_sigill() // Segmentation-fault sinyali handler'ı, şayet sinyal yakalanırsa VirtualPC yok demek. Yani pis işlerimizi yapabiliriz.
 {
 	evil_func();
 }
@@ -33,7 +33,7 @@ void check_vm()
 
 int main()
 {
-	signal( SIGILL, catch_segfault); // Illegal instruction signali'ni dinlemeye alıyoruz.
+	signal( SIGILL, catch_sigill); // Illegal instruction signali'ni dinlemeye alıyoruz.
 	check_vm(); // Virtual PC içerisindemiyiz bakalım..
 	puts("Virtual PC detected.."); // Şayet Virtual PC'de çalışıyorsak shellcode başarıyla çalışacak dolayısı ile hata üretmeyecek.
 	return 0; // Bu durumda da herhangi bir işlem yapmadan programı kapatalım.
