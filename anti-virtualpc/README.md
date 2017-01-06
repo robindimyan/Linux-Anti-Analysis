@@ -3,6 +3,6 @@ Zararlı yazılımlar analiz edilirken bilgisayara zarar vermemesi için sanal m
 
 Bu Anti-VM tekniklerinden bazıları şurada açıklanmıştır: [Link](https://blog.malwarebytes.com/threat-analysis/2014/09/five-anti-debugging-tricks-that-sometimes-fool-analysts/)
 
-Bu yazıda yer alan 2 no'lu tekniği uygulayalım. Bu teknik Microsoft Virtual PC sanallaştırma yazılımını hedef alır. Mantığı bu yazılıma özel instructionları program içerisinde kullanarak çalışıp çalışmadığına bakmaktır. Şayet bu program Virtual PC üzerinde çalıştırılırsa özel instructionlar başarıyla çalışacak, aksi takdirde program **Segmentation fault** hatası verecektir. Bu hata program tarafından yakalanıp hata oluştuğu takdirde zararlı kodlar çalıştırılmalıdır.
+Bu yazıda yer alan 2 no'lu tekniği uygulayalım. Bu teknik Microsoft Virtual PC sanallaştırma yazılımını hedef alır. Mantığı bu yazılıma özel instructionları program içerisinde kullanarak çalışıp çalışmadığına bakmaktır. Şayet bu program Virtual PC üzerinde çalıştırılırsa özel instructionlar başarıyla çalışacak, aksi takdirde program **Illegal Instruction** hatası verecektir. Bu hata program tarafından yakalanıp hata oluştuğu takdirde zararlı kodlar çalıştırılmalıdır.
 
-Programda *mmap()* ile çalıştırılabilir bellek alanı ayırılıp Virtual PC instructionları bu alana yüklendi. Ardından bu kodlar çalıştırılıp *signal()* fonksiyonu ile **SIGSEGV** (segmentation fault) sinyali yakalanmıştır.
+Programda *mmap()* ile çalıştırılabilir bellek alanı ayırılıp Virtual PC instructionları bu alana yüklendi. Ardından bu kodlar çalıştırılıp *signal()* fonksiyonu ile **SIGILL** (illegal instruction) sinyali yakalanmıştır.
