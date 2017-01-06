@@ -5,4 +5,4 @@ Bu Anti-VM tekniklerinden bazıları şurada açıklanmıştır: [Link](https://
 
 Bu yazıda yer alan 2 no'lu tekniği uygulayalım. Bu teknik Microsoft Virtual PC sanallaştırma yazılımını hedef alır. Mantığı bu yazılıma özel instructionları program içerisinde kullanarak çalışıp çalışmadığına bakmaktır. Şayet bu program Virtual PC üzerinde çalıştırılırsa özel instructionlar başarıyla çalışacak, aksi takdirde program **Segmentation fault** hatası verecektir. Bu hata program tarafından yakalanıp hata oluştuğu takdirde zararlı kodlar çalıştırılmalıdır.
 
-Programda *mmap()* ile çalıştırılabilir bir bellek alanı ayırılıp Virtual PC instructionları bu alana yüklendi. Ardından bu kodlar çalıştırılıp *signal()* fonksiyonu ile **SIGSEGV** (segmentation fault) sinyali yakalanmıştır.
+Programda *mmap()* ile çalıştırılabilir bellek alanı ayırılıp Virtual PC instructionları bu alana yüklendi. Ardından bu kodlar çalıştırılıp *signal()* fonksiyonu ile **SIGSEGV** (segmentation fault) sinyali yakalanmıştır.
